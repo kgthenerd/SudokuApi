@@ -34,6 +34,6 @@ functions:
     memorySize: 128
     events:
       - http:
-          path: sudoku
+          path: sudoku/random
           method: get
     description: 'Returns a bunch of sudoku puzzles from db'
