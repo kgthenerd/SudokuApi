@@ -1,0 +1,73 @@
+swagger: '2.0'
+info:
+  description: |
+    Yet another interview challenge
+    [http://karthikg.xyz](http://karthikg.xyz)
+  version: 1.0.0
+  title: Sudoku Puzzle 
+  contact:
+    email: me@karthikg.xyz
+# host: api.karthikg.xyz
+# basePath: /v1
+tags:
+- name: sudoku
+  description: Let's solve your puzzle
+# schemes:
+# - http
+paths:
+  /sudoku:
+    post:
+      tags:
+      - sudoku
+      consumes:
+      - application/x-www-form-urlencoded
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Resolves a given sudoku puzzle
+        required: true
+      responses:
+        422:
+          description: Unable to process the request
+        200:
+          description: Returns the resolved puzzle
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PostResult'
+        500:
+          description: Borked codebase fix it
+  /sudoku/random:
+    get:
+      tags:
+      - sudoku
+      description: Returns a random puzzle from the database
+      produces:
+      - application/json
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/GetResult'
+        400:
+          description: Invalid status value
+definitions:
+  PostResult:
+    type: string
+    properties:
+      result:
+        type: array
+  GetResult:
+    type: object
+    properties:
+      puzzle:
+        type: array
+# Added by API Auto Mocking Plugin
+host: api.karthikg.xyz
+basePath: /v1
+schemes:
+ - https
