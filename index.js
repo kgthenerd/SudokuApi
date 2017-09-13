@@ -35,7 +35,7 @@ module.exports.solveSudokuPuzzle = (event, context, callback) => {
 };
 
 module.exports.showSudokuPuzzles = (event, context, callback) => {
-    var id = Math.floor(Math.random() * 8) + 1;
+    var id = Math.floor(Math.random() * 20) + 1;
     var result = null;
     var searchParams = {
         TableName: process.env.TABLE_NAME,
